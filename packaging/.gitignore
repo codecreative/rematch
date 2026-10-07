@@ -1,0 +1,8 @@
+# The signing cert is a secret - shhhh!
+cert.p12
+
+# Built packages are just output, not source.
+dist/
+
+# In case you drop a downloaded ZXPSignCmd binary directly in here.
+ZXPSignCmd

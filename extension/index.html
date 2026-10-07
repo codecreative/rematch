@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Rematch</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="panel-header">
+      <h1>Rematch</h1>
+      <!-- Illustrator's CEP panels are persistent and never auto-reload - see
+           SETUP.md. This button forces a real reload during development. -->
+      <button id="reloadPanelButton" class="btn-minimal">Reload Panel</button>
+    </div>
+
+    <section class="section">
+      <p class="section-title"><span class="step-index">01</span>Active document</p>
+      <p class="section-description">
+        List the active document’s top-level layers and pick which ones to use as move targets.
+      </p>
+      <button id="listLayersButton" class="btn">List active document &amp; layers</button>
+      <div id="output" class="output-box">(no active document set)</div>
+      <ul id="layerList"></ul>
+    </section>
+
+    <hr />
+
+    <section class="section">
+      <p class="section-title"><span class="step-index">02</span>Source file</p>
+      <p class="section-description">
+        Choose an SVG file to pull new layers from.
+      </p>
+      <button id="chooseFileButton" class="btn">Open source file</button>
+      <div id="chosenFilePath" class="output-box">(no file chosen)</div>
+    </section>
+
+    <hr />
+
+    <section class="section">
+      <p class="section-title"><span class="step-index">03</span>Comparison layer</p>
+      <p class="section-description">
+        Pick the layer to compute scale/position from - a same-named layer must already
+        exist somewhere in each target. This is a layer that will not have changed between exports.
+      </p>
+      <select id="comparisonLayerSelect" class="select">
+        <option value="">(open a source file first)</option>
+      </select>
+    </section>
+
+    <hr />
+
+    <section class="section">
+      <p class="section-title"><span class="step-index">04</span>Move layers</p>
+      <p class="section-description">
+        Check one or more layers to actually copy into the target(s).
+      </p>
+      <ul id="sourceLayerTree"></ul>
+    </section>
+
+    <hr />
+
+    <section class="section">
+      <p class="section-title"><span class="step-index">05</span>Run</p>
+      <label class="checkbox-row">
+        <input type="checkbox" id="copyStylesCheckbox" />
+        <span>
+          Copy styles - for each moved layer, sample fill/stroke from an existing same-named
+          sublayer already in the target (if any), and apply it to the new geometry. The old
+          sublayer is left untouched. Works best for simple shapes.
+        </span>
+      </label>
+      <button id="moveLayerButton" class="btn btn-primary">Run</button>
+      
+      <hr />
+      <p class="hint">CONSOLE</p>
+      <pre id="moveLayerResult" class="output-box extension-console"></pre>
+    </section>
+
+    <footer class="panel-footer">
+      <span id="extensionVersion"></span>
+    </footer>
+
+    <!-- Adobe's own bridge library, unmodified. -->
+    <script src="CSInterface.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

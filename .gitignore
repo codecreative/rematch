@@ -1,0 +1,6 @@
+# OS
+.DS_Store
+
+# Local CEP debug config (see SETUP.md) - enables Chrome DevTools against
+# the panel; per-machine, never shared.
+/extension/.debug

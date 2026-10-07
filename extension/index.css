@@ -1,0 +1,294 @@
+
+:root {
+  --color-bg: hsl(220, 6%, 10%);
+  --color-surface: hsl(220, 6%, 15%);
+  --color-surface-2: hsl(220, 6%, 20%);
+  --color-border: hsl(220, 6%, 26%);
+  --color-text: hsl(0, 0%, 92%);
+  --color-text-muted: hsl(220, 6%, 62%);
+
+  --color-accent: hsl(202, 90%, 56%);
+  --color-accent-hover: hsl(202, 90%, 64%);
+  --color-accent-contrast: hsl(0, 0%, 100%);
+
+  --color-warning-bg: hsl(38, 55%, 20%);
+  --color-warning-border: hsl(38, 55%, 45%);
+  --color-warning-text: hsl(42, 75%, 70%);
+
+  --radius-s: 4px;
+  --radius-m: 6px;
+
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 6px;
+  --space-s: 8px;
+  --space-m: 12px;
+  --space-l: 16px;
+  --space-xl: 22px;
+
+  --font-size-xs: 10px;
+  --font-size-sm: 11px;
+  --font-size-base: 12px;
+  --font-size-lg: 13px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", sans-serif;
+  font-size: var(--font-size-base);
+  line-height: 1.45;
+  margin: 0;
+  padding: var(--space-l);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Native checkboxes/radios just get recolored to the accent - no need to
+   hand-roll custom controls for a panel this size. */
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: var(--color-accent);
+}
+
+/* Header */
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-l);
+}
+
+h1 {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Sections */
+
+.section {  
+  margin-bottom: var(--space-xl);
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-s);
+  text-transform: uppercase;
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-2xs);
+}
+
+.section-title .step-index {
+  color: var(--color-accent);
+  margin-right: var(--space-2xs);
+}
+
+.section-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-s);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--color-border);
+  margin: var(--space-l) 0;
+}
+
+/* Buttons */
+
+.btn {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: var(--space-s) var(--space-m);
+  margin-bottom: var(--space-s);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
+  background: var(--color-surface-2);
+  border-color: var(--color-text-muted);
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
+.btn-minimal {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: var(--space-3xs) var(--space-xs);
+  background: transparent;
+  border: 1px solid var(--color-warning-border);
+  color: var(--color-warning-text);
+  font-size: var(--font-size-xs);
+}
+
+.btn-minimal:hover {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+}
+
+/* Output / result surfaces */
+
+.output-box {
+  padding: var(--space-s);
+  /* background: var(--color-surface); */
+  border: 0px solid var(--color-border);
+  border-radius: var(--radius-s);
+  min-height: 1.4em;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  word-break: break-word;
+}
+
+.output-box.extension-console {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  padding: var(--space-s);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  word-break: break-word;
+}
+
+pre.output-box {
+  white-space: pre-wrap;
+  font-family: inherit;
+  margin: 0;
+}
+
+/* Comparison layer dropdown */
+
+.select {
+  display: block;
+  width: 100%;
+  padding: var(--space-s) var(--space-m);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-s);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.select:hover {
+  border-color: var(--color-text-muted);
+}
+
+.select option {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+/* Layer lists (the target tree and the source tree - both nested) */
+
+ul {
+  list-style: none;
+  margin: var(--space-2xs) 0 0;
+  padding: 0;
+}
+
+#layerList ul,
+#sourceLayerTree ul {
+  margin-left: var(--space-m);
+  padding-left: var(--space-s);
+  border-left: 1px solid var(--color-border);
+}
+
+#layerList li,
+#sourceLayerTree li {
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--radius-s);
+}
+
+#layerList li:hover,
+#sourceLayerTree li:hover {
+  background: var(--color-surface);
+}
+
+/* Manual expand/collapse toggle for #layerList's target tree (see
+   index.js's renderTargetTree) - collapsed by default so browsing into
+   sublayers is opt-in rather than always showing everything. */
+
+.tree-children.collapsed {
+  display: none;
+}
+
+.tree-toggle {
+  display: inline-block;
+  width: 1em;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  user-select: none;
+}
+
+.tree-toggle:hover {
+  color: var(--color-text);
+}
+
+/* Footer */
+
+.panel-footer {
+  margin-top: var(--space-l);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--color-border);
+  text-align: right;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+}
+
+/* Hints / legend */
+
+.hint {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin: var(--space-2xs) 0;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin: var(--space-s) 0;
+}
+
+.checkbox-row input {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.extension-console {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  margin: var(--space-2xs) 0;
+}
