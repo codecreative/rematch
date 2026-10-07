@@ -4,6 +4,8 @@ A CEP panel extension for Adobe Illustrator that re-imports a freshly-exported
 QGIS SVG, matches it against already-scaled/positioned layers in an existing
 Illustrator file, and drops the new artwork in correctly scaled and placed.
 
+NOTE: This is beta and probably some kinks to work out
+
 ## Why?
 When an SVG is exported from QGIS it loses its GIS information which makes adding to an existing document a hurdle when things have been scaled and moved around. This free extension helps ease the pain and might help others too.
 
