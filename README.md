@@ -6,6 +6,8 @@ Illustrator file, and drops the new artwork in correctly scaled and placed.
 
 NOTE: This is beta and probably some kinks to work out
 
+ADDENDUM TO THE NOTE: There is a writeup [available here](https://codecreative.com/projects/rematch/)
+
 ## Why?
 When an SVG is exported from QGIS it loses its GIS information which makes adding to an existing document a hurdle when things have been scaled and moved around. This free extension helps ease the pain and might help others too.
 
